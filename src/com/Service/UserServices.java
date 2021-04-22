@@ -26,7 +26,7 @@ public class UserServices {
 	//create object from UserController class
 	UserController userController = new UserController();
 	
-	//ccreate object from ValidateUserControler class
+	//create object from ValidateUserControler class
 	ValidateUserController userValidate = new ValidateUserController();
 	
 	
