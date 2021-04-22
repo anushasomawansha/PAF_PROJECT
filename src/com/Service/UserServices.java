@@ -9,9 +9,12 @@ import javax.ws.rs.core.MediaType;
 
 import com.Controller.UserAdminController;
 import com.Controller.UserController;
+import com.Controller.ValidateUserController;
 import com.Model.Users;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+
 
 
 
@@ -27,6 +30,9 @@ public class UserServices {
 	
 	//create object from UserController class
 	UserController userController = new UserController();
+	
+	//ccreate object from ValidateUserControler class
+	ValidateUserController userValidate = new ValidateUserController();
 	
 	
 	//read users
@@ -60,4 +66,64 @@ public class UserServices {
 		 String output = userController.userRegister(user);
 	return output; 
 	}
+	
+	
+	@GET
+	@Path("/ValidateUser") 
+	@Consumes(MediaType.APPLICATION_JSON) 
+	@Produces(MediaType.TEXT_HTML) 
+	public String validateUser(String userData) 
+	{ 
+	
+		JsonObject userObject = new JsonParser().parse(userData).getAsJsonObject(); 
+		 
+		//Read the value from the element <itemID>
+		 String username = userObject.get("username").getAsString();
+		 String password = userObject.get("password").getAsString();
+		
+		 String output = userValidate.validateUser(username, password);
+		 
+
+		
+		return output;
+	} 
+	
+	@GET
+	@Path("/getUserByType") 
+	@Consumes(MediaType.APPLICATION_JSON) 
+	@Produces(MediaType.TEXT_HTML) 
+	public String getUserByType(String userData) 
+	{ 
+	
+		JsonObject userObject = new JsonParser().parse(userData).getAsJsonObject(); 
+		 
+		//Read the value from the element <itemID>
+		 String username = userObject.get("username").getAsString();
+		 String password = userObject.get("password").getAsString();
+		
+		 String output = userValidate.getUserByType(username, password);
+		 
+
+		
+		return output;
+	} 
+	
+	@GET
+	@Path("/Login") 
+	@Consumes(MediaType.APPLICATION_JSON) 
+	@Produces(MediaType.TEXT_HTML) 
+	public String userLogin(String userData) 
+	{ 
+	
+		JsonObject userObject = new JsonParser().parse(userData).getAsJsonObject(); 
+		 
+		//Read the value from the element <itemID>
+		 String username = userObject.get("username").getAsString();
+		 String password = userObject.get("password").getAsString();
+		
+		 String output1 = userValidate.getUserByType(username, password);
+		 String output = userValidate.validateUser(username, password);
+
+		return output1+"'s Profile "+output;
+	} 
 }
