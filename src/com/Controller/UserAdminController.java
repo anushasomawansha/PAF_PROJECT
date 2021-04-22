@@ -52,7 +52,7 @@ public class UserAdminController {
 				 String type = rs.getString("type");
 				 // Add into the html table
 				 output += "<tr><td>" + userid + "</td>"; 
-				 output += "<td>" + fname+lname + "</td>";
+				 output += "<td>" + fname+" "+lname + "</td>";
 				 output += "<td>" + pnumber + "</td>"; 
 				 output += "<td>" + address + "</td>"; 
 				 output += "<td>" + username + "</td>"; 
