@@ -1,6 +1,7 @@
 package com.Service;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -141,6 +142,23 @@ public class UserServices {
 	 String password = userObject.get("password").getAsString(); 
 
 	 String output = userController.updateUser(userid, fname, lname,pnumber, address, password,type);
+	return output; 
+	}
+	
+	//delete user
+	@DELETE
+	@Path("/DeactivateUser") 
+	@Consumes(MediaType.APPLICATION_JSON) 
+	@Produces(MediaType.TEXT_PLAIN) 
+	public String deleteUser(String userData) 
+	{ 
+	//Convert the input string to a JSON object 
+	JsonObject userObject = new JsonParser().parse(userData).getAsJsonObject(); 
+	 
+	//Read the value from the element <itemID>
+	 String userID = userObject.get("userid").getAsString();
+	
+	 String output = userController.deleteUser(userID);
 	return output; 
 	}
 }
