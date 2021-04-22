@@ -14,7 +14,7 @@ public class UserAdminController {
 		try
 		{ 
 			Class.forName("com.mysql.jdbc.Driver"); 
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pafprojtest", "root", "root"); 
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/gbuserdb", "root", "root"); 
 		} 
 		catch (Exception e) 
 		{e.printStackTrace();} 
