@@ -26,6 +26,15 @@ CREATE TABLE `gbresearchdb`.`research` (
   `price` INT NULL,
   PRIMARY KEY (`productid`));
   
+  CREATE TABLE `pafp`.`order_db`
+ ( `id` INT NOT NULL AUTO_INCREMENT , 
+`Prname` VARCHAR(45) NOT NULL ,
+ `price` FLOAT NOT NULL , 
+`quantity` INT NOT NULL , 
+`email` VARCHAR(45) NOT NULL ,
+`paymentM` VARCHAR(45) NOT NULL ,
+ PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
   CREATE TABLE `payment`.`funds`
  ( `fundID` INT(11) NOT NULL AUTO_INCREMENT , 
 `fundCode` VARCHAR(45) NOT NULL ,
@@ -33,7 +42,6 @@ CREATE TABLE `gbresearchdb`.`research` (
 `fundPrice` DOUBLE(10) NOT NULL , 
 `fundDecs` VARCHAR(45) NOT NULL ,
  PRIMARY KEY (`fundID`)) ENGINE = InnoDB;
-
 
 CREATE TABLE `payment.`payments`
  ( `orderNo` VARCHAR(11) NOT NULL AUTO_INCREMENT ,
