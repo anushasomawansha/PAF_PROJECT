@@ -1,1 +1,47 @@
+CREATE TABLE `gbuserdb`.`user` (
+`userid` INT NOT NULL AUTO_INCREMENT,
+`fname` VARCHAR(45) NULL,
+`lname` VARCHAR(45) NULL,
+`pnumber` VARCHAR(45) NULL,
+`address` VARCHAR(45) NULL,
+`username` VARCHAR(45) NULL,
+`password` VARCHAR(45) NULL,
+`type` VARCHAR(45) NULL,
+PRIMARY KEY (`userid`));
 
+CREATE TABLE `gbresearchdb`.`research` (
+  `rid` INT NOT NULL AUTO_INCREMENT,
+  `userid` INT NULL,
+  `name` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `status` VARCHAR(45) NULL,
+  `budget` DOUBLE NULL,
+  PRIMARY KEY (`rid`));
+  
+  CREATE TABLE `gbproductdb`.`products` (
+  `productid` INT NOT NULL AUTO_INCREMENT,
+  `productname` VARCHAR(45) NULL,
+  `productcategory` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `price` INT NULL,
+  PRIMARY KEY (`productid`));
+  
+  CREATE TABLE `payment`.`funds`
+ ( `fundID` INT(11) NOT NULL AUTO_INCREMENT , 
+`fundCode` VARCHAR(45) NOT NULL ,
+ `fundName` VARCHAR(45) NOT NULL , 
+`fundPrice` DOUBLE(10) NOT NULL , 
+`fundDecs` VARCHAR(45) NOT NULL ,
+ PRIMARY KEY (`fundID`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `payment.`payments`
+ ( `orderNo` VARCHAR(11) NOT NULL AUTO_INCREMENT ,
+ `productID` VARCHAR(11) NOT NULL ,
+ `name` VARCHAR(45) NOT NULL , 
+`address` VARCHAR(100) NOT NULL , 
+`phoneNO` VARCHAR(10) NOT NULL , 
+`email` VARCHAR(30) NOT NULL , 
+`paymentMethod` VARCHAR(45) NOT NULL ,
+ `orderDate` VARCHAR(45) NOT NULL ,
+ PRIMARY KEY (`orderNo`)) ENGINE = InnoDB
